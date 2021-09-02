@@ -66,7 +66,7 @@ const createResults = data => {
         const { title, first_publish_year, publisher, author_name, cover_i } = book;
         console.log(title, first_publish_year, publisher, author_name, cover_i);
 
-        if (cover_i === undefined || first_publish_year === undefined || publisher === undefined || title === undefined || author_name === undefined) {
+        if (cover_i === undefined || first_publish_year === undefined || publisher[0] === undefined || title === undefined || author_name[0] === undefined) {
             return;
         }
 
@@ -94,7 +94,6 @@ const createResults = data => {
         </article>
         `;
         resultContainer.appendChild(resultCard);
-
         resultShowed++;
     });
 
