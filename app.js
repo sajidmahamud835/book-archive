@@ -22,42 +22,36 @@ let resultShowed = 0;
 ------------------ */
 
 const success = numFound => {
-    resultFound = document.createElement('div');
-    resultFound.innerHTML = ` <p id="notification"
+    notificationContainer.innerHTML = ` <p id="notification"
             class="text-center d-flex justify-content-between w-50 p-2 mt-2 mx-auto text-white bg-primary rounded shadow">
             Showing ${resultShowed} out of ${numFound} results. <span id="close"><i class="bi bi-x-lg small"></i></span>
         </p>
         `
-    notificationContainer.appendChild(resultFound);
-    closeNotification();
 }
 
 const notFound = () => {
-    resultFound = document.createElement('div');
-    resultFound.innerHTML = ` <p id="no-result"
+    notificationContainer.innerHTML = ` <p id="no-result"
     class="text-center d-flex justify-content-between w-50 p-2 mt-2 mx-auto text-white bg-info rounded shadow">
-    Opps! No was result found. <span id="close"><i class="bi bi-x-lg small"></i></span>
+    Opps! No result was found. <span id="close"><i class="bi bi-x-lg small"></i></span>
     </p>
         `
-    notificationContainer.appendChild(resultFound);
-    closeNotification();
 }
 
 const emptyInput = () => {
-    resultFound = document.createElement('div');
-    resultFound.innerHTML = ` <p id="empty-input"
+    notificationContainer.innerHTML = ` <p id="empty-input"
     class="text-center d-flex justify-content-between w-50 p-2 mt-2 mx-auto text-white bg-danger rounded shadow">
     Opps! Your input was empty. <span id="close"><i class="bi bi-x-lg small"></i></span>
     </p>
         `
-    notificationContainer.appendChild(resultFound);
-    closeNotification();
 }
 
 /* -----------------
     Create results
 ------------------- */
 const createResults = data => {
+    //clear old search data
+    resultContainer.innerHTML = ` `;
+
     const { numFound, docs } = data;
     console.log(numFound, docs);
 
@@ -132,9 +126,3 @@ const getBooks = kyeword => {
 
 //search button
 searchButton.addEventListener('click', () => getBooks(searchInput.value));
-
-// //notification close button
-// const closeNotification = () => {
-//     const closeButton = document.getElementById('close');
-//     closeButton.addEventListener('click', console.log('Close button clicked'));
-// }
