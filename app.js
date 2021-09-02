@@ -78,7 +78,7 @@ const createResults = data => {
 
         const resultCard = document.createElement('article');
         resultCard.innerHTML = `
-        <article class="col shadow rounded ms-4">
+        <article class="col shadow rounded ms-3">
     
             <div class="card border-0 h-100">
     
