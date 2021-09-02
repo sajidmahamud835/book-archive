@@ -8,8 +8,10 @@ console.log('javasrcipt is connected'); //test if javascript is connected
 const searchInput = document.getElementById('search-input');
 const searchButton = document.getElementById('search-button');
 
+//notification
+const notificationContainer = document.getElementById('notification-container')
+
 //error messages
-const resultFound = document.getElementById('result-found');
 const emptyInput = document.getElementById('empty-input');
 const noResult = document.getElementById('no-result');
 const error = document.getElementById('error');
@@ -17,12 +19,31 @@ const error = document.getElementById('error');
 //result container
 const resultContainer = document.getElementById('result-container');
 
+/* ----------------
+    Notification
+------------------ */
+const success = numFound => {
+    resultFound = document.createElement('div');
+    resultFound.innerHTML = ` <p id="result-found"
+            class="text-center d-flex justify-content-between w-50 p-2 mt-2 mx-auto text-white bg-primary rounded shadow">
+            Total ${numFound} result
+            was
+            found. <i class="bi bi-x-lg small"></i>
+        </p>
+        `
+    notificationContainer.appendChild(resultFound);
+}
+
 
 /* -----------------
     Create results
 ------------------- */
 const createResults = data => {
-    data.docs.forEach(result => {
+    const { numFound, docs } = data;
+
+    success(numFound); //show the number of result.
+
+    docs.forEach(result => {
         console.log('creating result.....')
         const resultCard = document.createElement('article');
         resultCard.innerHTML = `
