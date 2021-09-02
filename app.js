@@ -11,11 +11,6 @@ const searchButton = document.getElementById('search-button');
 //notification
 const notificationContainer = document.getElementById('notification-container')
 
-//error messages
-const emptyInput = document.getElementById('empty-input');
-const noResult = document.getElementById('no-result');
-const error = document.getElementById('error');
-
 //result container
 const resultContainer = document.getElementById('result-container');
 
@@ -30,22 +25,34 @@ const success = numFound => {
     resultFound = document.createElement('div');
     resultFound.innerHTML = ` <p id="notification"
             class="text-center d-flex justify-content-between w-50 p-2 mt-2 mx-auto text-white bg-primary rounded shadow">
-            Showing ${resultShowed} out of ${numFound} results. <i class="bi bi-x-lg small"></i>
+            Showing ${resultShowed} out of ${numFound} results. <span id="close"><i class="bi bi-x-lg small"></i></span>
         </p>
         `
     notificationContainer.appendChild(resultFound);
+    closeNotification();
 }
 
 const notFound = () => {
     resultFound = document.createElement('div');
     resultFound.innerHTML = ` <p id="no-result"
     class="text-center d-flex justify-content-between w-50 p-2 mt-2 mx-auto text-white bg-info rounded shadow">
-    Opps! No was result found. <i class="bi bi-x-lg small"></i>
+    Opps! No was result found. <span id="close"><i class="bi bi-x-lg small"></i></span>
     </p>
         `
     notificationContainer.appendChild(resultFound);
+    closeNotification();
 }
 
+const emptyInput = () => {
+    resultFound = document.createElement('div');
+    resultFound.innerHTML = ` <p id="empty-input"
+    class="text-center d-flex justify-content-between w-50 p-2 mt-2 mx-auto text-white bg-danger rounded shadow">
+    Opps! Your input was empty. <span id="close"><i class="bi bi-x-lg small"></i></span>
+    </p>
+        `
+    notificationContainer.appendChild(resultFound);
+    closeNotification();
+}
 
 /* -----------------
     Create results
@@ -107,6 +114,12 @@ const createResults = data => {
 //search books
 const getBooks = kyeword => {
     console.log(kyeword); //test if kyeword is passed correctly.
+    //check if input is empty
+    if (kyeword === '') {
+        emptyInput();
+        return;
+    }
+
     fetch(`https://openlibrary.org/search.json?q=${kyeword}`)
         .then(res => res.json())
         .then(data => createResults(data))
@@ -119,3 +132,9 @@ const getBooks = kyeword => {
 
 //search button
 searchButton.addEventListener('click', () => getBooks(searchInput.value));
+
+// //notification close button
+// const closeNotification = () => {
+//     const closeButton = document.getElementById('close');
+//     closeButton.addEventListener('click', console.log('Close button clicked'));
+// }
