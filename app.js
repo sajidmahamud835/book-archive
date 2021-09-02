@@ -19,16 +19,18 @@ const error = document.getElementById('error');
 //result container
 const resultContainer = document.getElementById('result-container');
 
+//result showed
+let resultShowed = 0;
+
 /* ----------------
     Notification
 ------------------ */
+
 const success = numFound => {
     resultFound = document.createElement('div');
-    resultFound.innerHTML = ` <p id="result-found"
+    resultFound.innerHTML = ` <p id="notification"
             class="text-center d-flex justify-content-between w-50 p-2 mt-2 mx-auto text-white bg-primary rounded shadow">
-            Total ${numFound} result
-            was
-            found. <i class="bi bi-x-lg small"></i>
+            Showing ${resultShowed} out of ${numFound} results. <i class="bi bi-x-lg small"></i>
         </p>
         `
     notificationContainer.appendChild(resultFound);
@@ -40,11 +42,18 @@ const success = numFound => {
 ------------------- */
 const createResults = data => {
     const { numFound, docs } = data;
+    console.log(numFound, docs);
 
-    success(numFound); //show the number of result.
-
-    docs.forEach(result => {
+    docs.forEach(book => {
         console.log('creating result.....')
+
+        const { title, first_publish_year, publisher, author_name, cover_i } = book;
+        console.log(title, first_publish_year, publisher, author_name, cover_i);
+
+        if (cover_i === undefined || first_publish_year === undefined || publisher === undefined || title === undefined || author_name === undefined) {
+            return;
+        }
+
         const resultCard = document.createElement('article');
         resultCard.innerHTML = `
         <article class="col shadow rounded ms-4">
@@ -52,17 +61,16 @@ const createResults = data => {
             <div class="card border-0 h-100">
     
                 <div class="card-body py-1">
-                    <h5 class="card-title">Things Go Wrong For Me</h5>
-                    <img src="https://covers.openlibrary.org/b/id/9055807-M.jpg" class="card-img" alt="...">
+                    <h5 class="card-title">${title}</h5>
+                    <img src="https://covers.openlibrary.org/b/id/${cover_i}-M.jpg" class="card-img" alt="...">
                     <p class="card-text">
-                    <small class="d-block"><span class="text-primary">Author:</span> Rodney Lacroix</small>
-                    <small class="d-block"><span class="text-primary">Publisher:</span> Progamming
-                        Hero</small>
+                    <small class="d-block"><span class="text-primary">Author:</span> ${author_name[0]}</small>
+                    <small class="d-block"><span class="text-primary">Publisher:</span> ${publisher[0]}</small>
                     </p>
                 </div>
     
                 <div class="card-footer py-1">
-                    <small class="text-muted">First published in 2012.</small>
+                    <small class="text-muted">First published on ${first_publish_year}.</small>
                 </div>
     
             </div> 
@@ -70,7 +78,11 @@ const createResults = data => {
         </article>
         `;
         resultContainer.appendChild(resultCard);
+
+        resultShowed++;
     });
+
+    success(resultShowed, numFound); //show the number of result.
 }
 
 
