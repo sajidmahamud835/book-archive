@@ -36,6 +36,16 @@ const success = numFound => {
     notificationContainer.appendChild(resultFound);
 }
 
+const notFound = () => {
+    resultFound = document.createElement('div');
+    resultFound.innerHTML = ` <p id="no-result"
+    class="text-center d-flex justify-content-between w-50 p-2 mt-2 mx-auto text-white bg-info rounded shadow">
+    Opps! No was result found. <i class="bi bi-x-lg small"></i>
+    </p>
+        `
+    notificationContainer.appendChild(resultFound);
+}
+
 
 /* -----------------
     Create results
@@ -43,6 +53,11 @@ const success = numFound => {
 const createResults = data => {
     const { numFound, docs } = data;
     console.log(numFound, docs);
+
+    if (numFound === 0) {
+        notFound();
+        return;
+    }
 
     docs.forEach(book => {
         console.log('creating result.....')
