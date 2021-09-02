@@ -6,14 +6,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Book Archive</title>
+
     <!-- Bootstarp icon -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+
     <!--Bootstarp CSS  -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
 </head>
 
 <body>
+
     <!-- header start -->
     <header class="d-flex justify-content-center mt-5">
         <nav class="navbar">
@@ -23,7 +26,11 @@
             </div>
         </nav>
     </header>
+    <!-- header end -->
+
     <main class="container">
+
+        <!-- search box -->
         <section>
             <div class="d-flex w-50 m-auto">
                 <input class="form-control me-2 rounded-pill" type="search" placeholder="Search" aria-label="Search">
@@ -31,26 +38,32 @@
                     <i class="bi bi-search"></i> Search</button>
             </div>
         </section>
+        <!-- search box -->
+
+        <!-- notification -->
         <section class="my-5 mx-auto">
-            <p
-                class="text-center d-flex justify-content-between w-50 p-2 mt-2 mx-auto text-white bg-primary rounded shadow">
+            <p id="result-found"
+                class="d-none text-center d-flex justify-content-between w-50 p-2 mt-2 mx-auto text-white bg-primary rounded shadow">
                 Total 2394 result
                 was
                 found. <i class="bi bi-x-lg small"></i>
             </p>
-            <p
-                class="text-center d-flex justify-content-between w-50 p-2 mt-2 mx-auto text-white bg-warning rounded shadow">
+            <p id="empty-input"
+                class="d-none text-center d-flex justify-content-between w-50 p-2 mt-2 mx-auto text-white bg-warning rounded shadow">
                 Opps! Your input is empty. <i class="bi bi-x-lg small"></i>
             </p>
-            <p
-                class="text-center d-flex justify-content-between w-50 p-2 mt-2 mx-auto text-white bg-info rounded shadow">
+            <p id="no-result"
+                class="d-none text-center d-flex justify-content-between w-50 p-2 mt-2 mx-auto text-white bg-info rounded shadow">
                 Opps! No result found. <i class="bi bi-x-lg small"></i>
             </p>
-            <p
-                class="text-center d-flex justify-content-between w-50 p-2 mt-2 mx-auto text-white bg-danger rounded shadow">
+            <p id="error"
+                class="d-none text-center d-flex justify-content-between w-50 p-2 mt-2 mx-auto text-white bg-danger rounded shadow">
                 Something went worng! <i class="bi bi-x-lg small"></i>
             </p>
         </section>
+        <!-- notification -->
+
+        <!-- results -->
         <section class="mb-5">
             <dic class="row row-cols-1 row-cols-md-6 g-4">
                 <article class="col shadow rounded ms-4">
@@ -70,182 +83,20 @@
                         </div>
                     </div>
                 </article>
-                <article class="col shadow rounded ms-4">
-                    <div class="card border-0 h-100">
-                        <div class="card-body py-1">
-                            <h5 class="card-title">Things Go Wrong For Me</h5>
-                            <img src="https://covers.openlibrary.org/b/id/9055807-M.jpg" class="card-img" alt="...">
-                            <p class="card-text">
-                                <small class="d-block"><span class="text-primary">Author:</span> Rodney Lacroix</small>
-                                <small class="d-block"><span class="text-primary">Publisher:</span> Progamming
-                                    Hero</small>
-                            </p>
-
-                        </div>
-                        <div class="card-footer py-1">
-                            <small class="text-muted">First published in 2012.</small>
-                        </div>
-                    </div>
-                </article>
-                <article class="col shadow rounded ms-4">
-                    <div class="card border-0 h-100">
-                        <div class="card-body py-1">
-                            <h5 class="card-title">Things Go Wrong For Me</h5>
-                            <img src="https://covers.openlibrary.org/b/id/9055807-M.jpg" class="card-img" alt="...">
-                            <p class="card-text">
-                                <small class="d-block"><span class="text-primary">Author:</span> Rodney Lacroix</small>
-                                <small class="d-block"><span class="text-primary">Publisher:</span> Progamming
-                                    Hero</small>
-                            </p>
-
-                        </div>
-                        <div class="card-footer py-1">
-                            <small class="text-muted">First published in 2012.</small>
-                        </div>
-                    </div>
-                </article>
-                <article class="col shadow rounded ms-4">
-                    <div class="card border-0 h-100">
-                        <div class="card-body py-1">
-                            <h5 class="card-title">Things Go Wrong For Me</h5>
-                            <img src="https://covers.openlibrary.org/b/id/9055807-M.jpg" class="card-img" alt="...">
-                            <p class="card-text">
-                                <small class="d-block"><span class="text-primary">Author:</span> Rodney Lacroix</small>
-                                <small class="d-block"><span class="text-primary">Publisher:</span> Progamming
-                                    Hero</small>
-                            </p>
-
-                        </div>
-                        <div class="card-footer py-1">
-                            <small class="text-muted">First published in 2012.</small>
-                        </div>
-                    </div>
-                </article>
-                <article class="col shadow rounded ms-4">
-                    <div class="card border-0 h-100">
-                        <div class="card-body py-1">
-                            <h5 class="card-title">Things Go Wrong For Me</h5>
-                            <img src="https://covers.openlibrary.org/b/id/9055807-M.jpg" class="card-img" alt="...">
-                            <p class="card-text">
-                                <small class="d-block"><span class="text-primary">Author:</span> Rodney Lacroix</small>
-                                <small class="d-block"><span class="text-primary">Publisher:</span> Progamming
-                                    Hero</small>
-                            </p>
-
-                        </div>
-                        <div class="card-footer py-1">
-                            <small class="text-muted">First published in 2012.</small>
-                        </div>
-                    </div>
-                </article>
-                <article class="col shadow rounded ms-4">
-                    <div class="card border-0 h-100">
-                        <div class="card-body py-1">
-                            <h5 class="card-title">Things Go Wrong For Me</h5>
-                            <img src="https://covers.openlibrary.org/b/id/9055807-M.jpg" class="card-img" alt="...">
-                            <p class="card-text">
-                                <small class="d-block"><span class="text-primary">Author:</span> Rodney Lacroix</small>
-                                <small class="d-block"><span class="text-primary">Publisher:</span> Progamming
-                                    Hero</small>
-                            </p>
-
-                        </div>
-                        <div class="card-footer py-1">
-                            <small class="text-muted">First published in 2012.</small>
-                        </div>
-                    </div>
-                </article>
-                <article class="col shadow rounded ms-4">
-                    <div class="card border-0 h-100">
-                        <div class="card-body py-1">
-                            <h5 class="card-title">Things Go Wrong For Me</h5>
-                            <img src="https://covers.openlibrary.org/b/id/9055807-M.jpg" class="card-img" alt="...">
-                            <p class="card-text">
-                                <small class="d-block"><span class="text-primary">Author:</span> Rodney Lacroix</small>
-                                <small class="d-block"><span class="text-primary">Publisher:</span> Progamming
-                                    Hero</small>
-                            </p>
-
-                        </div>
-                        <div class="card-footer py-1">
-                            <small class="text-muted">First published in 2012.</small>
-                        </div>
-                    </div>
-                </article>
-                <article class="col shadow rounded ms-4">
-                    <div class="card border-0 h-100">
-                        <div class="card-body py-1">
-                            <h5 class="card-title">Things Go Wrong For Me</h5>
-                            <img src="https://covers.openlibrary.org/b/id/9055807-M.jpg" class="card-img" alt="...">
-                            <p class="card-text">
-                                <small class="d-block"><span class="text-primary">Author:</span> Rodney Lacroix</small>
-                                <small class="d-block"><span class="text-primary">Publisher:</span> Progamming
-                                    Hero</small>
-                            </p>
-
-                        </div>
-                        <div class="card-footer py-1">
-                            <small class="text-muted">First published in 2012.</small>
-                        </div>
-                    </div>
-                </article>
-                <article class="col shadow rounded ms-4">
-                    <div class="card border-0 h-100">
-                        <div class="card-body py-1">
-                            <h5 class="card-title">Things Go Wrong For Me</h5>
-                            <img src="https://covers.openlibrary.org/b/id/9055807-M.jpg" class="card-img" alt="...">
-                            <p class="card-text">
-                                <small class="d-block"><span class="text-primary">Author:</span> Rodney Lacroix</small>
-                                <small class="d-block"><span class="text-primary">Publisher:</span> Progamming
-                                    Hero</small>
-                            </p>
-
-                        </div>
-                        <div class="card-footer py-1">
-                            <small class="text-muted">First published in 2012.</small>
-                        </div>
-                    </div>
-                </article>
-                <article class="col shadow rounded ms-4">
-                    <div class="card border-0 h-100">
-                        <div class="card-body py-1">
-                            <h5 class="card-title">Things Go Wrong For Me</h5>
-                            <img src="https://covers.openlibrary.org/b/id/9055807-M.jpg" class="card-img" alt="...">
-                            <p class="card-text">
-                                <small class="d-block"><span class="text-primary">Author:</span> Rodney Lacroix</small>
-                                <small class="d-block"><span class="text-primary">Publisher:</span> Progamming
-                                    Hero</small>
-                            </p>
-
-                        </div>
-                        <div class="card-footer py-1">
-                            <small class="text-muted">First published in 2012.</small>
-                        </div>
-                    </div>
-                </article>
-                <article class="col shadow rounded ms-4">
-                    <div class="card border-0 h-100">
-                        <div class="card-body py-1">
-                            <h5 class="card-title">Things Go Wrong For Me</h5>
-                            <img src="https://covers.openlibrary.org/b/id/9055807-M.jpg" class="card-img" alt="...">
-                            <p class="card-text">
-                                <small class="d-block"><span class="text-primary">Author:</span> Rodney Lacroix</small>
-                                <small class="d-block"><span class="text-primary">Publisher:</span> Progamming
-                                    Hero</small>
-                            </p>
-
-                        </div>
-                        <div class="card-footer py-1">
-                            <small class="text-muted">First published in 2012.</small>
-                        </div>
-                    </div>
-                </article>
             </dic>
         </section>
+        <!-- results -->
     </main>
+
+    <!-- footer item -->
     <footer class="bg-light container">
         <p class="text-center">© 2021 Book Archive, Inc.</p>
     </footer>
+    <!-- footer item -->
+
+    <!-- javascript -->
+    <script src="app.js"></script>
+    <!-- javascript -->
 </body>
 
 </html>
